@@ -5,7 +5,9 @@ project( christmas_party CXX )
 
 # Gather files and store paths in CMake variables
 file( GLOB HEADER_FILES libs/inc/*.h* )
-file( GLOB SOURCE_FILES libs/src/*.cpp )
+file( GLOB SOURCE_FILES libs/src/source.cpp )
+file( GLOB LAMBDA_SOURCE_FILES libs/src/lambda.cpp )
+file( GLOB CAPTURE_SOURCE_FILES libs/src/capture.cpp )
 
 # Specify the folders with header files, otherwise our includes are not found
 include_directories( libs/inc )
@@ -26,5 +28,9 @@ endif( CMAKE_COMPILER_IS_GNUCXX )
 
 # Add executables
 add_executable( main ${SOURCE_FILES} ${HEADER_FILES} )
+add_executable( lambda ${LAMBDA_SOURCE_FILES} )
+add_executable( capture ${CAPTURE_SOURCE_FILES} )
 
 install( TARGETS main RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX} )
+install( TARGETS lambda RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX} )
+install( TARGETS capture RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX} )
