@@ -73,6 +73,13 @@ int main() {
 
 
 
+
+
+
+
+
+
+
 	// Capture by value [var1, var2, ...] ---------------------------------
 	double pi = 3.14159265;
 
@@ -87,6 +94,15 @@ int main() {
 	
 
 
+
+
+
+
+
+
+
+
+
 	// Capture by reference [&var1, &var2, ...] ----------------------------
 	double lengthSum = 0;
 
@@ -96,6 +112,18 @@ int main() {
 	});
 
 	std::cout << lengthSum << "\n";
+
+
+
+
+
+
+
+
+
+
+
+
 
 	/* -----------------------------------------------------------------
 	[]							- no capture						
@@ -109,6 +137,18 @@ int main() {
 								  the specified ones, those by value
 	----------------------------------------------------------------- */
 
+
+
+
+
+
+
+
+
+
+
+
+
 	/* -----------------------------------------------------------------
 	MUTABILITY
 	By default, if a variable is captured by value, it is a const and
@@ -120,6 +160,23 @@ int main() {
 	Naturally, a variable which was captured by reference can be 
 	modified by default.
 	----------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
