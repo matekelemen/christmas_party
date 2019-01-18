@@ -62,7 +62,6 @@ int main() {
 	that called the lambda, eg.: std::for_each)
 	----------------------------------------------------------------- */
 
-
 	// No capture [] ------------------------------------------------------
 	std::for_each(vectors.begin(), vectors.end(), [](std::array<double, 2>& vec) {
 		// no captures, pass by reference

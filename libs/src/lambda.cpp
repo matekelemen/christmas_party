@@ -10,8 +10,8 @@ void print(std::vector<int>& vec) {
 	}
 	std::cout << "\n";
 }
-
-int mod_with_static(int x);
+static int n;
+void mod_with_static(int x);
 void some_function();
 
 
@@ -26,6 +26,11 @@ int main() {
 	--------------------------------------------------- */
 	// Classes that overload operator()
 	
+
+
+
+
+
 	// Define a functor
 	class mod_n {											// Functor definition
 	private:
@@ -35,15 +40,41 @@ int main() {
 		int operator() (int x) const { return x % n_; };	// Overload operator()
 	};
 	
+
+
+
+
+
+
+
+
+
+
+
+
 	// Call a functor
-	mod_n functor3(3);										// Initialise functors with
-	mod_n functor4(5);										// different values
+	mod_n functor1(3);										// Initialise functors with
+	mod_n functor2(5);										// different values
 
 	for (int i = 0; i < 10; ++i) {
 		std::cout << "  "
-			<< functor3(i) << "\t" 
-			<< functor4(i) << "\n";
+			<< functor1(i) << "\t" 
+			<< functor2(i) << "\n";
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	// You don't have to create an instance
 	// of a functor to be able to use it
@@ -54,8 +85,19 @@ int main() {
 	print(v2);
 
 
+
+
+
+
+
+
+
+
+
+
 	// Function instead of functor
 	some_function();
+
 
 	// Return
 	return 0;
@@ -70,14 +112,16 @@ To replace functors with functions, we would need a static
 variable that can be modified outside the scope of the function
 but can be used by it.
 ------------------------------------------------------------ */
-static int n;									// Declare a static variable
+//static int n;										// Declare a static variable
 //...
-int mod_with_static(int x) { return x % n; }	// Define the function
+void mod_with_static(int x) {						// Define the function
+	std::cout << x % n << " "; 
+}	
 //...
 void some_function() {
 
-	n = 7;										// Give some value to the
-												// static variable
+	n = 7;											// Give some value to the
+													// static variable
 	//...
 	std::vector<int> vec = { 6, 28, 496 };
 	std::for_each(vec.begin(), vec.end(), mod_with_static);
