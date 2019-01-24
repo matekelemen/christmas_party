@@ -1,13 +1,14 @@
 cmake_minimum_required( VERSION 3.4.3 )
 
 # Project name and programming language
-project( christmas_party CXX )
+project( hiwi_meetings CXX )
 
 # Gather files and store paths in CMake variables
 file( GLOB HEADER_FILES libs/inc/*.h* )
 file( GLOB SOURCE_FILES libs/src/source.cpp )
 file( GLOB LAMBDA_SOURCE_FILES libs/src/lambda.cpp )
 file( GLOB CAPTURE_SOURCE_FILES libs/src/capture.cpp )
+file( GLOB POLICY_SOURCE_FILES libs/src/policy.cpp )
 
 # Specify the folders with header files, otherwise our includes are not found
 include_directories( libs/inc )
@@ -30,7 +31,9 @@ endif( CMAKE_COMPILER_IS_GNUCXX )
 add_executable( main ${SOURCE_FILES} ${HEADER_FILES} )
 add_executable( lambda ${LAMBDA_SOURCE_FILES} )
 add_executable( capture ${CAPTURE_SOURCE_FILES} )
+add_executable( policy ${POLICY_SOURCE_FILES} )
 
 install( TARGETS main RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX} )
 install( TARGETS lambda RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX} )
 install( TARGETS capture RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX} )
+install( TARGETS policy RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX} )
