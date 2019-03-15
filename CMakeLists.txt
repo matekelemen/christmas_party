@@ -4,9 +4,9 @@ cmake_minimum_required( VERSION 3.4.3 )
 project( hiwi_meetings CXX )
 
 # Gather files and store paths in CMake variables
-file( GLOB HEADER_FILES libs/inc/*.h* )
-file( GLOB SOURCE_FILES libs/src/source.cpp )
-file( GLOB LAMBDA_SOURCE_FILES libs/src/lambda.cpp )
+file( GLOB LAMBDAS_HEADER_FILES libs/inc/partygoer.hpp )
+file( GLOB LAMBDAS_SOURCE_FILES libs/src/lambdas.cpp )
+file( GLOB FUNCTORS_SOURCE_FILES libs/src/functors.cpp )
 file( GLOB CAPTURE_SOURCE_FILES libs/src/capture.cpp )
 file( GLOB POLICY_SOURCE_FILES libs/src/policy.cpp )
 file( GLOB SOLID_SOURCE_FILES libs/src/SOLID.cpp )
@@ -30,14 +30,14 @@ endif( CMAKE_COMPILER_IS_GNUCXX )
 
 
 # Add executables
-add_executable( main ${SOURCE_FILES} ${HEADER_FILES} )
-add_executable( lambda ${LAMBDA_SOURCE_FILES} )
+add_executable( lambdas ${LAMBDAS_SOURCE_FILES} ${LAMBDAS_HEADER_FILES} )
+add_executable( functors ${FUNCTORS_SOURCE_FILES} )
 add_executable( capture ${CAPTURE_SOURCE_FILES} )
 add_executable( policy ${POLICY_SOURCE_FILES} )
 add_executable( solid ${SOLID_SOURCE_FILES} ${SOLID_HEADER_FILES} )
 
-install( TARGETS main RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX} )
-install( TARGETS lambda RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX} )
+install( TARGETS lambdas RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX} )
+install( TARGETS functors RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX} )
 install( TARGETS capture RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX} )
 install( TARGETS policy RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX} )
 install( TARGETS solid RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX} )

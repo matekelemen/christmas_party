@@ -136,5 +136,6 @@ void print(std::vector<partygoer> ppl) {
 		std::cout << "\n\n";
 	}
 	std::cout << "\n\n";
+	if (ppl[0].snack_eaten.length()==0) std::cout << "\nPress ENTER to find out who ends up with the leftover bread\n\n\n";
 	std::cin.get();
 }
